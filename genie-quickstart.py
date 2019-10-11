@@ -127,3 +127,10 @@ def add_device(hostname, os_type, testbed, device_type='switch', ip_addr=None):
 
     testbed.add_device(dev)
     return dev
+
+dev = add_device('CSR-1', 'iosxe', testbed)
+dev.connect()
+sh_ver = dev.parse('show version')
+
+print("~"*40)
+import ipdb; ipdb.set_trace()
