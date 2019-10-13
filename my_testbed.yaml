@@ -13,3 +13,17 @@ devices:
              protocol: ssh
              ip: "172.20.58.51"
 
+
+ CSR-2:
+     type: 'router'
+     os: 'iosxe'
+     platform: csr1kv
+     alias: 'helper'
+     credentials:
+         default:
+             username: admin
+             password: cisco
+     connections:
+         cli:
+             protocol: ssh
+             ip: "172.20.58.52"
