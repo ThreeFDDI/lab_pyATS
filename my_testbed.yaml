@@ -1,0 +1,29 @@
+devices:
+ Core-1:
+     type: 'router'
+     os: 'nxos'
+     platform: n9kv
+     alias: 'uut'
+     credentials:
+         default:
+             username: admin
+             password: cisco
+     connections:
+         cli:
+             protocol: ssh
+             ip: "172.20.58.61"
+
+
+ CSR-1:
+     type: 'router'
+     os: 'iosxe'
+     platform: asr1k
+     alias: 'helper'
+     credentials:
+         default:
+             username: admin
+             password: cisco
+     connections:
+         cli:
+             protocol: ssh
+             ip: "172.20.58.51"
