@@ -1,9 +1,8 @@
-devices:
- CSR-1:
+ Core-1:
      type: 'router'
-     os: 'iosxe'
-     platform: csr1kv
-     alias: 'helper'
+     os: 'nxos'
+     platform: n9kv
+     alias: 'uut'
      credentials:
          default:
              username: admin
@@ -11,5 +10,4 @@ devices:
      connections:
          cli:
              protocol: ssh
-             ip: "172.20.58.51"
-
+             ip: "172.20.58.61"
