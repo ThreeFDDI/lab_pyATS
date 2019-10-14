@@ -3,7 +3,8 @@ from genie.testbed import load
 from genie.conf.base.device import Device
 from genie.utils.diff import Diff
 
-pre_post = input("Please enter 'pre' or 'post' for testing phase: ")
+#pre_post = input("Please enter 'pre' or 'post' for testing phase: ")
+pre_post = "post"
 
 # load testbed file
 tb = load('tri_testbed.yaml')
@@ -33,7 +34,7 @@ for dev in tb.devices:
         # Diff routing tables   
         print(f"{dev} diff:")
         print("~"*10)
-        diff = Diff(pre, post)
+        diff = Diff(pre, post, exclude="updated")
         diff.findDiff()
         print(diff)
         print()
