@@ -1,4 +1,4 @@
-import logging
+import logging, json
 from genie.testbed import load
 from genie.conf.base.device import Device
 from genie.utils.diff import Diff
@@ -13,8 +13,6 @@ routes = []
 
 # loop over devices
 for dev in tb.devices:
-    # print each device name
-    print(dev)
     # connect to each deivce
     device = tb.devices[dev]
     # disable logging
@@ -23,20 +21,20 @@ for dev in tb.devices:
     routes = device.parse('show ip route')
     
     with open(f"{dev}-{pre_post}.info", "w+") as f:
-        f.write(str(routes))
+        json.dump(routes, f)
 
     if pre_post == 'post':
         pass
+        with open(f"{dev}-pre.info", "r") as f:
+            pre = json.load(f)
+        with open(f"{dev}-post.info", "r") as f:
+            post = json.load(f)
+        
         # Diff routing tables   
-        #print("Diff:")
-        #diff = Diff(routes[0], routes[1])
-        #diff.findDiff()
-        #print(diff)
-
-    
-    # send command and parse output
-    #routes.append()
-
-    # print device routing table
-    print()
+        print(f"{dev} diff:")
+        print("~"*10)
+        diff = Diff(pre, post)
+        diff.findDiff()
+        print(diff)
+        print()
 
