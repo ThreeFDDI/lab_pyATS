@@ -38,8 +38,11 @@ for dev in tb.devices:
         # Diff routing tables   
         print(f"{dev} diff:")
         print("~"*10)
+        # set diff variable and exlude "updated" field
         diff = Diff(pre, post, exclude="updated")
+        # diff pre/post files
         diff.findDiff()
+        # print dif
         print(diff)
         print()
 
