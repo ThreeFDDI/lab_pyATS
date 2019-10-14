@@ -23,9 +23,10 @@ for dev in tb.devices:
 
     # print device routing table
     print(routes)
+    print()
 
 # Diff routing tables   
-print("\nDiff:")
+print("Diff:")
 diff = Diff(routes[0], routes[1])
 diff.findDiff()
 print(diff)
