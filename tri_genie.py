@@ -13,9 +13,6 @@ while pre_post not in ["pre", "post"]:
 # load testbed file
 tb = load('tri_testbed.yaml')
 
-# init routes list
-routes = []
-
 # loop over devices
 for dev in tb.devices:
     # connect to each deivce
