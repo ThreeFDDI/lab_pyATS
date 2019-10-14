@@ -1,10 +1,14 @@
-import logging, json
+import logging, json, sys
 from genie.testbed import load
 from genie.conf.base.device import Device
 from genie.utils.diff import Diff
 
-#pre_post = input("Please enter 'pre' or 'post' for testing phase: ")
-pre_post = "post"
+# init variable to control pre / post testing
+pre_post = None
+
+# prompt user to set variable to control pre / post testing
+while pre_post not in ["pre", "post"]:
+    pre_post = input("Please enter 'pre' or 'post' for testing phase: ").lower()
 
 # load testbed file
 tb = load('tri_testbed.yaml')
