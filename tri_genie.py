@@ -1,10 +1,10 @@
-import logging, json, sys
+import logging, json, sys, os
 from genie.testbed import load
 from genie.conf.base.device import Device
 from genie.utils.diff import Diff
 
 # init variable to control pre / post testing
-pre_post = "post"
+pre_post = "None"
 
 # prompt user to set variable to control pre / post testing
 while pre_post not in ["pre", "post"]:
@@ -21,6 +21,11 @@ for dev in tb.devices:
     device.connect(log_stdout=False)
     # grab routing table from each device
     routes = device.parse('show ip route')
+    # delete ecisting info file 
+    try:
+        os.remove(f"{dev}_{pre_post}.info")
+    except OSError:
+        pass
     # save routing table output to file
     with open(f"{dev}_{pre_post}.info", "w+") as f:
         json.dump(routes, f)
@@ -39,6 +44,11 @@ for dev in tb.devices:
         diff = Diff(pre, post, exclude="updated")
         # diff pre/post files
         diff.findDiff()
+        # delete existing diff file
+        try:
+            os.remove(f"{dev}.diff")
+        except OSError:
+            pass
         # write diff to file
         with open(f"{dev}.diff", "w+") as f:
             f.write(str(diff))
