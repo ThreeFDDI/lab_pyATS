@@ -4,7 +4,7 @@ my_testbed = load('tri_testbed.yaml')
 
 my_testbed.devices['Tri-CSR-1'].connect(log_stdout=False)
 
-output = my_testbed.devices['Tri-CSR-1'].learn('interface')
+output = my_testbed.devices['Tri-CSR-1'].learn('all')
 
-print(output.info)
+print(output)
 
