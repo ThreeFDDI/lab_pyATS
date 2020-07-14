@@ -1,2 +1,3 @@
 *.info
 *.diff
+pyats_env/*
