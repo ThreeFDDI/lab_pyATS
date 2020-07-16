@@ -1,5 +1,5 @@
 devices:
- Tri-CSR-1:
+ CSR-1:
      type: 'router'
      os: 'iosxe'
      platform: csr1kv
@@ -13,7 +13,7 @@ devices:
              protocol: ssh
              ip: "172.20.58.31"
 
- Tri-CSR-2:
+ CSR-2:
      type: 'router'
      os: 'iosxe'
      platform: csr1kv
@@ -27,7 +27,7 @@ devices:
              protocol: ssh
              ip: "172.20.58.32"
 
- Tri-CSR-3:
+ CSR-3:
      type: 'router'
      os: 'iosxe'
      platform: csr1kv
